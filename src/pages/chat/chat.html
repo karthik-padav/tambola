@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+            <ion-list>
+              <!-- Left card -->
+                <ion-card [ngClass]="{'right-chat':chat.uid==currentUser.uid,'left-chat':chat.uid!=currentUser.uid}" *ngFor="let chat of chatList">
+                    <ion-item>
+                      <ion-avatar item-end>
+                        <img src={{chat.photoURL}}>
+                      </ion-avatar>
+                      <h2>{{chat.displayName}}</h2>
+                      <p>November 5, 1955</p>
+                    </ion-item>
+                    <ion-card-content>
+                      <p>{{chat.msg}}</p>
+                    </ion-card-content>
+                  </ion-card>
+        
+                  <!-- Right card -->
+                <!-- <ion-card class="left-card">
+                    <ion-item>
+                      <ion-avatar item-start>
+                        <img src="http://www.qygjxz.com/data/out/190/6179593-profile-pics.jpg">
+                      </ion-avatar>
+                      <h2>Marty McFly</h2>
+                      <p>November 5, 1955</p>
+                    </ion-item>
+                    <ion-card-content>
+                      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+                    </ion-card-content>
+                  </ion-card> -->
+              </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-title>
+          
+      <ion-item>
+          <ion-input type="text" aria-placeholder="Message" [(ngModel)] ="message"></ion-input>
+          <button ion-button clear color="dark" type="button" item-right (click)="sendMessage()">
+              SEND
+          </button>
+        </ion-item>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>

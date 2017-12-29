@@ -1,0 +1,22 @@
+<ion-menu [content]="content">
+
+  <ion-content>
+    <ion-item (click)="goToProfile()">
+      <ion-avatar item-start>
+        <img *ngIf="userData?.photoURL" src={{userData?.photoURL}}>
+      </ion-avatar>
+      <h2>{{userData?.displayName?userData.displayName:'-'}}</h2>
+      <p>{{userData?.email}}</p>
+    </ion-item>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+      <button menuClose ion-item (click)="signOut()">Sign Out</button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

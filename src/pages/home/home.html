@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- <ion-content padding>
+
+  <ion-grid class="tambolaTicket-w">
+    <ion-row *ngFor="let row of tambolaTickets">
+      <ion-col *ngFor="let col of row, let i=index">
+        {{col}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <hr>
+  
+  <h3 text-center>{{numberPicked}}</h3>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2 *ngFor="let num of numberArray">
+        <ion-badge [ngClass]="{ 'green' : num.done }">
+          <span>{{num.number}}</span>
+        </ion-badge>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <button ion-button icon-end (click)="reset()">
+    Reset Icon
+    <ion-icon name="star"></ion-icon>
+  </button>
+  <button ion-button icon-end (click)="startGame()">
+    Start Game
+    <ion-icon name="star"></ion-icon>
+  </button>
+</ion-content> -->
+
+<ion-content padding>
+
+    <button ion-button block icon-start (click)="createRoom()">
+        Create room
+      </button>
+      <button ion-button block icon-start (click)="showCode = !showCode">
+          Join room
+      </button>
+      <ion-item>
+          <ion-label>Join room</ion-label>
+          <ion-input type="text" [(ngModel)] ="joinCode"></ion-input>
+          <button ion-button clear color="dark" type="button" item-right (click)="joinRoom(joinCode)">
+              <ion-icon name="ios-arrow-forward"> </ion-icon>
+          </button>
+        </ion-item>
+</ion-content>
